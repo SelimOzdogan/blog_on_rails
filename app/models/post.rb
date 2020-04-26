@@ -3,7 +3,7 @@ class Post < ApplicationRecord
               presence: true,
               uniqueness: { case_sensitive: false },
             }
-  validates :description, {
+  validates :body, {
               presence: true,
               length: { minimum: 50 },
             }
