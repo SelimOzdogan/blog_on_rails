@@ -1,0 +1,38 @@
+.card-text-index {
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+  
+  .card-body{
+      padding: 0.7rem !important;
+  }
+  
+  .indexpage {
+      //nothing
+  }
+  
+  .card {
+ margin: 5px;
+  
+  }
+  .row {
+    justify-content: space-evenly;
+  }
+  
+  
+  .small-text{
+    font-size: 11px;
+  }
+
+  .homeclass{
+    margin-right: 10px;
+  }
+
+  .comment{
+    margin: 15px;
+  }
+
+  .post-form{
+    margin: 15px;
+  }
