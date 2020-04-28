@@ -1,0 +1,22 @@
+<div class="post-form">
+
+<% if @post.errors.any? %>
+<ul>
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for @post do |p| %>
+<div class="form-group">
+    <%= p.label :title %>
+    <%= p.text_field :title, class: "form-control" %>
+</div>
+<div class="form-group">
+    <%= p.label :body %>
+    <%= p.text_area :body, class: "form-control" %>
+</div>
+<%= p.submit 'Submit', class: 'btn btn-primary btn-lg' %>
+<% end %>
+</div>

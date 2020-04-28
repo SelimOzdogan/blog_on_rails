@@ -6,13 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Comment.destroy_all
 Post.destroy_all
 
 100.times do
   p = Post.create({
     title: Faker::Lorem.question,
-    body: Faker::Hacker.say_something_smart
+    body: Faker::Hacker.say_something_smart,
   })
+  if p.valid?
+    rand(1..10).times.each do
+      Comment.create(
+        body: Faker::Hacker.say_something_smart,
+        post: p
+      )
+    end
+  end
 end
 
 puts "Created #{Post.count} Posts"
+puts "Created #{Comment.count} Comments"
