@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # get "/post", to: "post#show"
   # get "/posts/new", to: "posts#new"
 
+  resources :users
+
   resources :posts do
     resources :comments, shallow: true, only: [:create, :destroy]
   end
