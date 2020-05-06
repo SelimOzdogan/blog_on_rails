@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def authenticated_user!
+    unless user_signed_in?
+      flash[:alert] = "You must sign in or sign up first"
+      redirect_to root_path
+    end
+  end
 end

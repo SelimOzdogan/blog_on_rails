@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authenticated_user!, except: [:index, :show]
+  
+  
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new comment_params
