@@ -1,0 +1,23 @@
+<div class="user-form">
+    <% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+    <% end %>
+
+    <%= form_for @user do |f| %>
+
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name , class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email , class: 'form-control' %>
+    </div>
+
+    <%= f.submit "Update User", class: 'btn btn-primary' %>
+    <% end %>
+</div>
