@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :update]
-  
+  before_action :find_user, only: [:edit, :update, :editpassword]
+
   def new
     @user = User.new
   end
@@ -25,7 +25,25 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
 
+  def editpassword
+  end
+
+  def updatepassword
+    @password = params.require(:user)[:current_password]
+     byebug
+    if password_correct? @password
+      if @current_user.update user_params
+        flash[:notice] = "Password Changed"
+        redirect_to posts_path
+      else
+        redirect_to editpassword_path
+      end
+    else
+      flash[:alert] = "Wrong Password"
+      redirect_to editpassword_path
+    end
   end
 
   private

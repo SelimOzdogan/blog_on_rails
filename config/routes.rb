@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # get "/posts/new", to: "posts#new"
 
   resource :session, only: [:new, :create, :destroy]
+  patch "/users/:id/updatepassword" => "users#updatepassword", as: "updatepassword"
+  get "/users/:id/editpassword" => "users#editpassword", as: "editpassword"
 
+  # get "/users/:id/editpassword", to: "users#editpassword"
+  # post "/users/:id/updatepassword", to: "users#updatepassword"
   resources :users, only: [:new, :create, :edit, :update]
 
   resources :posts do
