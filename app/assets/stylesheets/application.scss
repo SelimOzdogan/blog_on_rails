@@ -16,4 +16,40 @@
  @import "bootstrap";
 
  @import "main";
+
+ $flash-bg-color: palegreen;
+
+ .flash-message {
+     background-color: $flash-bg-color;
+     border-radius: 5px;
+     color: darkolivegreen;
+     padding: 8px;
+ }
+
+ .navbar-links{
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .navbar-nav{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between!important;
+    width: -webkit-fill-available;
+ }
+ .linksNav{
+    display: flex;
+ }
+
+ .signNav{
+    display: flex;
+ }
+
+ .userName{
+    align-self: center; 
+    margin-right: 10px; 
+    font-weight: bold;
+    color: lightblue;
+    font-size: 24px;
+ }
  

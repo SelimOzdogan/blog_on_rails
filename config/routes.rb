@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # get "/post", to: "post#show"
   # get "/posts/new", to: "posts#new"
 
-  resources :users
+  resource :session, only: [:new, :create, :destroy]
+
+  resources :users, only: [:new, :create]
 
   resources :posts do
     resources :comments, shallow: true, only: [:create, :destroy]
