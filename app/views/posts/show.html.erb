@@ -2,6 +2,8 @@
   <div class="card-body">
     <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.body %></p>
+    <p><small style="color:silver;">Updated by <b><%= @post.user&.name %></b></small></p>
+
     <%= link_to "Edit", edit_post_path(@post), class: "btn btn-outline-primary" %>
 
     <%= link_to 'Delete', 
@@ -38,7 +40,7 @@
   <ul class="list-group">
     <li class="list-group-item" style="border: none; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0;">
       <p style="margin-bottom: 0;"><%= comment.body %></p>
-      <p style="margin-bottom: 0;"><small>Commented <%= distance_of_time_in_words_to_now(comment.updated_at)%> ago
+      <p style="margin-bottom: 0;"><small>Commented by <%= comment.user&.name %> <%= distance_of_time_in_words_to_now(comment.updated_at)%> ago
           ●
           <%= link_to 'Delete',
                 comment_path(comment),

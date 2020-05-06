@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
+    @post.user = @current_user
     if @post.save
       redirect_to @post
     else
@@ -23,27 +24,30 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new 
+    @comment = Comment.new
     @comments = @post.comments.order(updated_at: :desc)
   end
 
   def update
+    if !@post.user.present?
+      @post.user = @current_user
+    end
     if @post.update post_params
       redirect_to post_path(@post)
     else
       render :edit
     end
   end
-  
+
   def destroy
     @post.destroy
     redirect_to posts_path
   end
-  
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :user)
   end
 
   def find_post
