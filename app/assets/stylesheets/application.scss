@@ -17,14 +17,22 @@
 
  @import "main";
 
- $flash-bg-color: palegreen;
-
  .flash-message {
-     background-color: $flash-bg-color;
      border-radius: 5px;
-     color: darkolivegreen;
      padding: 8px;
- }
+   }
+   .flash-notice {
+      color: darkolivegreen;
+      background-color: palegreen;
+   }
+   .flash-warning {
+      color: darkolivegreen;
+      background-color: yellow;
+   }
+   .flash-alert {
+      color:whitesmoke;
+   background-color: red;  
+}
 
  .navbar-links{
      display: flex;

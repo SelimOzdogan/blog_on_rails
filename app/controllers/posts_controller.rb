@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticated_user!, except: [:index, :show]
+
+  # before_action :authorize!, only: [:edit, :update, :destroy]
+
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -17,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    # byebug
   end
 
   def index
@@ -29,19 +33,29 @@ class PostsController < ApplicationController
   end
 
   def update
-    if !@post.user.present?
-      @post.user = @current_user
-    end
-    if @post.update post_params
-      redirect_to post_path(@post)
+    if !can?(:update, @post)
+      flash[:warning] = "You can't update a post you don't own"
+      redirect_to root_path
     else
-      render :edit
+      if !@post.user.present?
+        @post.user = @current_user
+      end
+      if @post.update post_params
+        redirect_to post_path(@post)
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path
+    if !can?(:destroy, @post)
+      flash[:warning] = "You can't delete a post you don't own"
+      redirect_to root_path
+    else
+      @post.destroy
+      redirect_to posts_path
+    end
   end
 
   private
