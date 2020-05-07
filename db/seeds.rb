@@ -16,6 +16,7 @@ User.create({
   name: "Selim Ozdogan",
   email: "selimozdogan@hotmail.com",
   password: password.to_s,
+  is_admin: true
 })
 9.times do
   password += 1
