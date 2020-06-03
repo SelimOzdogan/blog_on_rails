@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :update, :editpassword]
+  before_action :find_user, only: [:edit, :update, :editpassword, :updatepassword]
 
   def new
     @user = User.new
@@ -42,7 +42,9 @@ class UsersController < ApplicationController
   end
 
   def updatepassword
+    byebug
     if !can?(:update, @user)
+      flash[:warning] = "You can't update an user you don't own"
       redirect_to root_path
     else
       @password = params.require(:user)[:current_password]

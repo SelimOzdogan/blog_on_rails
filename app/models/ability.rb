@@ -9,7 +9,6 @@ class Ability
       end
 
     can(:update, Post) do |post|#edit
-        # byebug
       post.user == user
     end
 
