@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <% if flash[:notice].present?%>
+  <div class="flash-message flash-notice">
+    <%= flash[:notice]%>
+  </div>
+  <% end %>
+  <% if flash[:warning].present?%>
+  <div class="flash-message flash-warning">
+    <%= flash[:warning]%>
+  </div>
+  <% end %>
+  <% if flash[:alert].present?%>
+  <div class="flash-message flash-alert">
+    <%= flash[:alert]%>
+  </div>
+  <% end %>
+  <%= yield %>
+</div>

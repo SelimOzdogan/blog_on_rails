@@ -2,14 +2,19 @@
   <div class="card-body">
     <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.body %></p>
+    <p><small style="color:silver;">Updated by <b><%= @post.user&.name %></b></small></p>
+    <% if can? :update, @post %>
     <%= link_to "Edit", edit_post_path(@post), class: "btn btn-outline-primary" %>
-
+    <% end %>
+    <% if can? :destroy, @post %>
     <%= link_to 'Delete', 
           post_path(@post), 
           class: "btn btn-outline-primary",
           method: :delete, 
           data: { confirm: 'Are you sure that you want to delete this post? '} 
       %>
+    <% end %>
+
   </div>
 </div>
 <div class="comment">
@@ -38,15 +43,22 @@
   <ul class="list-group">
     <li class="list-group-item" style="border: none; margin-bottom: 0px; padding-bottom: 0px; padding-top: 0;">
       <p style="margin-bottom: 0;"><%= comment.body %></p>
-      <p style="margin-bottom: 0;"><small>Commented <%= distance_of_time_in_words_to_now(comment.updated_at)%> ago
-          ●
+      <p style="margin-bottom: 10px;">
+        <small style="color:silver; border-bottom: silver dotted 1px;">
+          Commented by <%= comment.user&.name %>
+          <%= distance_of_time_in_words_to_now(comment.updated_at)%> ago
+        </small>
+          <% if can? :destroy, comment %>
+        <small>
+          *
           <%= link_to 'Delete',
                 comment_path(comment),
                 method: :delete,
                 data: {
                     confirm: 'Are you sure that you want to delete this comment?'
-                }
-    %></small>
+                }%>
+          <% end %>
+        </small>
       </p>
     </li>
   </ul>

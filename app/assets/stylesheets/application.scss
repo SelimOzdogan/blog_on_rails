@@ -16,4 +16,48 @@
  @import "bootstrap";
 
  @import "main";
+
+ .flash-message {
+     border-radius: 5px;
+     padding: 8px;
+   }
+   .flash-notice {
+      color: darkolivegreen;
+      background-color: palegreen;
+   }
+   .flash-warning {
+      color: darkolivegreen;
+      background-color: yellow;
+   }
+   .flash-alert {
+      color:whitesmoke;
+   background-color: red;  
+}
+
+ .navbar-links{
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .navbar-nav{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between!important;
+    width: -webkit-fill-available;
+ }
+ .linksNav{
+    display: flex;
+ }
+
+ .signNav{
+    display: flex;
+ }
+
+ .userName{
+    align-self: center; 
+    margin-right: 10px; 
+    font-weight: bold;
+    color: lightblue;
+    font-size: 24px;
+ }
  
