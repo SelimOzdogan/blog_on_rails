@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get "/users/:id/editpassword" => "users#editpassword", as: "editpassword"
 
   resources :users, only: [:new, :create, :edit, :update]
-
   resources :posts do
     resources :comments, shallow: true, only: [:create, :destroy]
   end
