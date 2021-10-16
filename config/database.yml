@@ -46,7 +46,7 @@ development:
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
 
-  # Minimum log levels, in increasing order:
+  # Minimulog levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: blog_on_rails_production
-  username: blog_on_rails
-  password: <%= ENV['BLOG_ON_RAILS_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: blog_on_rails_production
+#   username: blog_on_rails
+#   password: <%= ENV['BLOG_ON_RAILS_DATABASE_PASSWORD'] %>
