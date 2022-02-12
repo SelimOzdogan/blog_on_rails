@@ -113,7 +113,7 @@ GEM
       racc (~> 1.4)
     pg (1.2.3)
     popper_js (1.16.0)
-    puma (4.3.9)
+    puma (4.3.11)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -218,7 +218,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (>= 2.3.2)
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
